@@ -114,7 +114,7 @@ task_function_call(struct task_struct *p, remote_function_f func, void *info)
 	};
 	int ret;
 
-	for (;;) {
+	while (1) {
 		ret = smp_call_function_single(task_cpu(p), remote_function,
 					       &data, 1);
 		if (!ret)
